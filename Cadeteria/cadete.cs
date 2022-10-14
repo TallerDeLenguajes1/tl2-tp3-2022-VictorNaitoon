@@ -22,6 +22,14 @@ public class Cadete : Persona {
                 this.TotalACobrar += 0;
             }
         }
+
+        IEnumerable<Pedidos> entregados = from pedidos in ListadoDePedidos where pedidos.Estado == "Entregado" select pedidos;
+
+        foreach (Pedidos item in entregados)
+        {
+            this.TotalACobrar += 300;
+        }
+
         return TotalACobrar;
     }
 }
