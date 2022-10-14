@@ -13,6 +13,7 @@ public class Cadete : Persona {
     }
 
     public float JornalACobrar(){
+        /*
         foreach (var item in this.ListadoDePedidos)
         {
             if (item.Estado == "Entregado" || item.Estado == "entregado")
@@ -22,7 +23,9 @@ public class Cadete : Persona {
                 this.TotalACobrar += 0;
             }
         }
+        */
 
+        //Aplicacion con Linq
         IEnumerable<Pedidos> entregados = from pedidos in ListadoDePedidos where pedidos.Estado == "Entregado" select pedidos;
 
         foreach (Pedidos item in entregados)
